@@ -3,6 +3,15 @@
 ## Overview
 This application simulates a backend service that tracks the status of sports events. It provides a REST endpoint to update event statuses (live or not live). A scheduled task periodically checks for "live" events, calls a (mocked) external API to get details for these live events, and then publishes this information to a Kafka topic.
 
+### Initial Mock Data
+
+For demonstration purposes, the application automatically initializes the following event statuses upon startup:
+*   `mockEventSTARTUP001`: LIVE
+*   `mockEventSTARTUP002`: LIVE
+*   `mockEventSTARTUP003`: NOT LIVE
+
+This allows you to see the event processing and Kafka publishing flow in action immediately after starting the application and Kafka.
+
 ## Core Requirements Met
 -   **REST Endpoint for Event Status Updates:** Allows clients to set events as live or not live.
 -   **Scheduled External API Calls:** Periodically calls a mock external API for events marked as "live".

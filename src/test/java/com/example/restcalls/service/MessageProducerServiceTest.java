@@ -25,7 +25,7 @@ public class MessageProducerServiceTest {
     }
 
     @Test
-    void testSendMessage_NullPayload() throws JsonProcessingException {
+    void testSendMessage_NullPayload() {
         ObjectMapper mockMapper = mock(ObjectMapper.class);
         MessageProducerService producerService = new MessageProducerService(mockMapper);
 
