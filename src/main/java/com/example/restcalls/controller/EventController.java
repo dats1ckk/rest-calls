@@ -10,17 +10,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Random;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/events")
+@RequiredArgsConstructor
 public class EventController {
 
     private static final Logger logger = LoggerFactory.getLogger(EventController.class);
 
     private final EventService eventService;
-
-    public EventController(EventService eventService) {
-        this.eventService = eventService;
-    }
 
     // Mock API endpoint
     @GetMapping("/mockapi/event/{eventId}")

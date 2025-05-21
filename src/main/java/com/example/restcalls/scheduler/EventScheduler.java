@@ -3,6 +3,7 @@ package com.example.restcalls.scheduler;
 import com.example.restcalls.dto.MockApiResponse;
 import com.example.restcalls.service.EventService;
 import com.example.restcalls.service.MessageProducerService;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -13,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Map;
 
 @Component
+@RequiredArgsConstructor
 public class EventScheduler {
 
     private static final Logger logger = LoggerFactory.getLogger(EventScheduler.class);
@@ -20,12 +22,6 @@ public class EventScheduler {
     private final EventService eventService;
     private final RestTemplate restTemplate;
     private final MessageProducerService messageProducerService;
-
-    public EventScheduler(EventService eventService, RestTemplate restTemplate, MessageProducerService messageProducerService) {
-        this.eventService = eventService;
-        this.restTemplate = restTemplate;
-        this.messageProducerService = messageProducerService;
-    }
 
     @Scheduled(fixedRate = 10000)
     public void fetchLiveEventData() {
